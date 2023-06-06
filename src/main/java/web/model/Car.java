@@ -11,8 +11,6 @@ public class Car {
 
     private int price;
 
-    String greeting = "hello";
-
     public Car() {
     }
 
