@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class CarController {
 
-    CarService service;
+    private CarService service;
 
     public CarController(CarService service) {
         this.service = service;
@@ -22,9 +22,9 @@ public class CarController {
     @RequestMapping("/cars")
     public String viewAllCars(HttpServletRequest request, Model model) {
         String count = request.getParameter("count");
-        List<Car> list = (count == null || Integer.parseInt(count) >= 5) ? service.getCarList(5) :
-                service.getCarList(Integer.parseInt(count));
+        List<Car> list = service.getCarList(count);
         model.addAttribute("cars", list);
         return "cars";
     }
+
 }

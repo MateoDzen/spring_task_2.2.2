@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public class CarDaoImpl implements CarDao {
 
-    List<Car> carList;
+    private List<Car> carList;
 
     public CarDaoImpl() {
         carList = new ArrayList<>();

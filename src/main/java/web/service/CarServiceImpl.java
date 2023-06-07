@@ -9,14 +9,15 @@ import java.util.List;
 @Service
 public class CarServiceImpl implements CarService {
 
-    CarDao dao;
+    private CarDao dao;
 
     public CarServiceImpl(CarDao dao) {
         this.dao = dao;
     }
 
     @Override
-    public List<Car> getCarList(int count) {
-        return dao.getCarList(count);
+    public List<Car> getCarList(String count) {
+        return (count == null || Integer.parseInt(count) >= 5) ? dao.getCarList(5) :
+                dao.getCarList(Integer.parseInt(count));
     }
 }
